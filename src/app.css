@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'Pretendard';
+	src: url('/fonts/PretendardStdVariable.woff2') format('woff2');
+	font-display: swap;
+}
+
+@theme {
+	--font-sans: 'Pretendard', sans-serif;
+	--font-mono: 'IBM Plex Mono', monospace;
+	--background-color-default: #090b0c;
+}
+
+body {
+	@apply bg-default;
+}
