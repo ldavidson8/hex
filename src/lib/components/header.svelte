@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Logo from './logo.svelte';
 	import RiGithubFill from '~icons/ri/github-fill';
 	import RiMoonFill from '~icons/ri/moon-fill';
 </script>
@@ -8,9 +9,10 @@
 		<div class="flex items-center">
 			<a
 				href="/"
-				class="flex items-center border-r border-neutral-700 px-2.5 py-4 font-semibold tracking-wider text-neutral-100 uppercase md:px-5"
+				class="flex items-center gap-2 border-r border-neutral-700 px-2.5 py-4 text-lg font-semibold tracking-wider text-neutral-100 uppercase md:px-5"
 			>
 				HEX
+				<Logo class="size-5" />
 			</a>
 			<ul class="flex items-center">
 				<li class="border-r border-neutral-700">
