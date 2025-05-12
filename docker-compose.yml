@@ -1,14 +1,30 @@
 services:
-  db:
-    image: postgres:latest
+  # app:
+  #   build: .
+  #   ports:
+  #     - '5173:5173'
+  #   env_file:
+  #     - .env
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  postgres:
+    image: postgres:17-alpine
+    env_file:
+      - .env
     environment:
-      POSTGRES_USER: hex
-      POSTGRES_PASSWORD: hex
-      POSTGRES_DB: postgres
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
     ports:
-      - '5432:5432'
+      - '${PGPORT}:5432'
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', "sh -c 'pg_isready'"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
 
 volumes:
-  db_data:
+  pg_data:
