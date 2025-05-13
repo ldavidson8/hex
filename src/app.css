@@ -12,6 +12,23 @@
 	--background-color-default: #090b0c;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 150ms;
+}
+
+&[aria-current='page']::before {
+	view-transition-name: active-page;
+}
+
 body {
 	@apply bg-default;
+}
+
+@media (prefers-reduced-motion) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
 }
