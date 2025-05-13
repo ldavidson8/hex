@@ -8,7 +8,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"clean": "rm -rf node_modules && rm -rf .svelte_kit && pnpm i",
-		"codegen": "kysely-codegen --dialect postgres --camel-case --out-file ./src/lib/utils/kysely-types.ts",
+		"codegen": "kysely-codegen --dialect postgres --camel-case --out-file ./src/lib/kysely-types.ts",
 		"dev": "vite dev",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
